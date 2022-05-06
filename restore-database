@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+DOCKER_CONTAINER=$(docker ps --format '{{ .Names }}' | grep example-wordpress-db)
+if [ -z "$DOCKER_CONTAINER" ]; then
+  echo "No database container found!"
+  exit;
+fi
+
+echo "Clearing old database..."
+echo "DROP DATABASE wordpress;" > .temp.db.sql
+echo "CREATE DATABASE wordpress;" >> .temp.db.sql
+docker exec -i $DOCKER_CONTAINER sh -c 'exec mysql -u"$DB_USER" -p"$DB_PASSWORD"' < .temp.db.sql
+rm .temp.db.sql
+
+echo "Starting to import database files..."
+find ./db-dump -not -path '*/.*' -type f > .files.db.tmp
+while IFS= read -r file; do
+  case "$file" in
+    *.sql)
+      echo "Processing SQL $file..."
+      docker exec -i $DOCKER_CONTAINER sh -c 'exec mysql -u"$DB_USER" -p"$DB_PASSWORD" wordpress' < "$file"
+      ;;
+
+    *.sql.gz)
+      echo "Processing GZip SQL $file..."
+      gunzip -c "$file" | docker exec -i $DOCKER_CONTAINER sh -c 'exec mysql -u"$DB_USER" -p"$DB_PASSWORD" wordpress'
+      ;;
+
+    *)
+      echo "No database file: $file"
+      ;;
+  esac
+done < .files.db.tmp
+rm .files.db.tmp
+
+echo "Done"

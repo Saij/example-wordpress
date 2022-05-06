@@ -1,0 +1,27 @@
+# Application
+src/web/app/plugins/*
+!src/web/app/plugins/.gitkeep
+src/web/app/mu-plugins/*/
+src/web/app/upgrade
+src/web/app/uploads/*
+!src/web/app/uploads/.gitkeep
+src/web/app/cache/*
+
+# WordPress
+src/web/wp
+src/web/.htaccess
+
+# Logs
+*.log
+
+# Dotenv
+src/.env
+
+# Composer
+src/vendor
+
+# WP-CLI
+src/wp-cli.local.yml
+
+# IntelliJ IDE
+.idea

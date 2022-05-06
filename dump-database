@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Search for database container
+DOCKER_CONTAINER=$(docker ps --format '{{ .Names }}' | grep example-wordpress-db)
+if [ -z "$DOCKER_CONTAINER" ]; then
+  echo "No database container found!"
+  exit;
+fi
+
+# Ask an important question
+echo "WARNING! This operation will delete any previous database dumps!"
+echo "Do you wish to continue?"
+
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes)
+          break
+          ;;
+        No)
+          exit
+          ;;
+    esac
+done
+
+# Delete all old dumps
+echo "Removing old dumps..."
+rm -rf ./db-dump/*
+
+# Doing the dump
+echo "Doing the dump..."
+docker exec $DOCKER_CONTAINER sh -c 'exec mysqldump -u"$DB_USER" -p"$DB_PASSWORD" wordpress' | gzip > ./db-dump/01-database.sql.gz
+
+echo "Done"
