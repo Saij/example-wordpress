@@ -13,3 +13,5 @@ For internal MySQL connections the servername is `db`.
 
 Also an Mailhog is available. The frontend is accessible under http://mailhog.wordpress.localhost.
 To connect via SMTP use the servername `mailhog` and the port `1025` without TLS/SSL and no authentication.
+
+For the first start, simply run `composer install` inside `src` directory.
