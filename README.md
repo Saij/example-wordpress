@@ -1,5 +1,5 @@
 # example-wordpress
-#### An simple developer Wordpress built with Docker and Bedrock
+### An simple developer Wordpress built with Docker and Bedrock
 
 A simple Wordpress for developing purposes using Docker and Bedrock.
 Simply run `docker compose -f docker-compose.yml up` to start the service.
