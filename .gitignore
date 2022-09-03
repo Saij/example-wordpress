@@ -1,6 +1,7 @@
 # Application
 src/web/app/plugins/*
 !src/web/app/plugins/.gitkeep
+!/src/web/app/plugins/example-plugin/
 src/web/app/mu-plugins/*/
 src/web/app/upgrade
 src/web/app/uploads/*
@@ -25,3 +26,6 @@ src/wp-cli.local.yml
 
 # IntelliJ IDE
 .idea
+
+# MacOS
+.DS_Store
