@@ -78,5 +78,10 @@
     "test": [
       "phpcs"
     ]
+  },
+  "autoload": {
+    "psr-4": {
+      "VAF\\WP\\TestPlugin\\": "./web/app/plugins/test-plugin/src"
+    }
   }
 }

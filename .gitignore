@@ -1,7 +1,7 @@
 # Application
 src/web/app/plugins/*
 !src/web/app/plugins/.gitkeep
-!/src/web/app/plugins/example-plugin/
+!/src/web/app/plugins/test-plugin/
 src/web/app/mu-plugins/*/
 src/web/app/upgrade
 src/web/app/uploads/*
