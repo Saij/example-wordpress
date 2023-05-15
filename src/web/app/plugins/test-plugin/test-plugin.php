@@ -24,7 +24,8 @@ $initAutoload = function () {
 };
 
 add_action('init', function () {
-    BasePlugin::registerPlugin(Plugin::class, __FILE__);
+    $debug = (defined('WP_ENV') && WP_ENV === 'development');
+    BasePlugin::registerPlugin(Plugin::class, __FILE__, $debug);
 });
 
 register_activation_hook(__FILE__, $initAutoload);
