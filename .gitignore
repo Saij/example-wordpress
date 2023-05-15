@@ -11,6 +11,8 @@ src/web/app/cache/*
 # WordPress
 src/web/wp
 src/web/.htaccess
+/src/web/app/themes/twentytwentythree/
+/src/web/app/themes/twentytwentytwo/
 
 # Logs
 *.log

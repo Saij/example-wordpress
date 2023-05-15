@@ -35,17 +35,19 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.2",
     "composer/installers": "^2.1",
     "vlucas/phpdotenv": "^5.4",
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "^5.9.3",
+    "roots/wordpress": "^6.2",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
-    "vonaffenfels/vaf-wp-library": "dev-features/admin-pages",
-    "wpackagist-plugin/wp-mail-smtp": "^3.5"
+    "vonaffenfels/vaf-wp-library": "dev-refactor/php8",
+    "wpackagist-plugin/wp-mail-smtp": "^3.5",
+    "wpackagist-theme/twentytwentytwo": "^1.4",
+    "wpackagist-theme/twentytwentythree": "^1.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.2",
@@ -76,10 +78,5 @@
     "test": [
       "phpcs"
     ]
-  },
-  "autoload": {
-    "psr-4": {
-      "VAF\\ExamplePlugin\\": "web/app/plugins/example-plugin/src"
-    }
   }
 }
