@@ -9,7 +9,6 @@
  * Author URI:        https://www.vonaffenfels.de
  */
 
-use VAF\WP\Library\Plugin as BasePlugin;
 use VAF\WP\TestPlugin\Plugin;
 
 if (!defined('ABSPATH')) {
@@ -24,8 +23,7 @@ $initAutoload = function () {
 };
 
 add_action('init', function () {
-    $debug = (defined('WP_ENV') && WP_ENV === 'development');
-    BasePlugin::registerPlugin(Plugin::class, __FILE__, $debug);
+    Plugin::registerPlugin(__FILE__, defined('WP_DEBUG') && WP_DEBUG);
 });
 
 register_activation_hook(__FILE__, $initAutoload);

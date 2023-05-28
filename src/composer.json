@@ -47,7 +47,8 @@
     "vonaffenfels/vaf-wp-library": "dev-refactor/php8",
     "wpackagist-plugin/wp-mail-smtp": "^3.5",
     "wpackagist-theme/twentytwentytwo": "^1.4",
-    "wpackagist-theme/twentytwentythree": "^1.1"
+    "wpackagist-theme/twentytwentythree": "^1.1",
+    "symfony/yaml": "^6.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.2",
